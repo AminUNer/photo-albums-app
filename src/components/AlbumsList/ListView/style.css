@@ -1,0 +1,17 @@
+.album-cover {
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    color: #111111;
+    text-decoration: none !important;
+}
+.photo-cover {
+    cursor: pointer;
+}
+
+.MuiPaper-root {
+    min-width: 650px !important;
+}
+
+

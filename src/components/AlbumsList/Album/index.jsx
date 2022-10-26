@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Grid, Typography} from "@mui/material"
 import ListView from "../ListView";
 import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 import {getAlbumPhotos} from "../../../redux/Actions/photosActions";
 import Paginator from "../Paginator";
 
@@ -10,7 +10,8 @@ const Album = () => {
 
     const dispatch = useDispatch();
 
-    let {albumId, username, title} = useParams();
+    let {albumId} = useParams();
+    const [searchParams] = useSearchParams();
 
     const photos = useSelector((state) => state.photosReducer.photos);
     const loading = useSelector((state) => state.photosReducer.loading);
@@ -27,8 +28,8 @@ const Album = () => {
     return(
         <>
             <Grid container margin={1} spacing={2} rowSpacing={1} display="flex" justifyContent="center" alignItems="center">
-                <Typography variant="h2" gutterBottom>
-                    {username} {title}
+                <Typography variant="h4" gutterBottom>
+                    Album: '{searchParams.get('title')}' for user {searchParams.get('owner')}
                 </Typography>
             </Grid>
             <Grid container margin={1} spacing={2} rowSpacing={1} display="flex" justifyContent="center" alignItems="center">
